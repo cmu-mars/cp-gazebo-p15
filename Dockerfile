@@ -1,4 +1,4 @@
-FROM mars
+FROM cmu-mars/base
 
 RUN sudo apt-get install -y ros-kinetic-gazebo-ros-pkgs \
                             ros-kinetic-gazebo-ros-control \
