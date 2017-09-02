@@ -1,5 +1,6 @@
 FROM cmu-mars/base
 
+RUN sudo apt-get update
 RUN sudo apt-get install -y ros-kinetic-gazebo-ros-pkgs \
                             ros-kinetic-gazebo-ros-control \
                             ros-kinetic-kobuki-gazebo
