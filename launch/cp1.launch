@@ -48,4 +48,20 @@
   <remap from="image" to="/camera/depth/image_raw"/>
   <remap from="scan" to="/scan"/>
 </node>
+
+<!-- Launch move base -->
+<!-- TODO: move to separate Docker container -->
+<include file="$(find turtlebot_navigation)/launch/includes/move_base.launch.xml">
+  <arg name="custom_param_file" value="$(arg custom_param_file)"/>
+</include>
+
+<!-- This is the initial pose (for AMCL) of the turtlebot -->
+<arg name="initial_pose_x" default="0.0"/> 
+<arg name="initial_pose_y" default="0.0"/> 
+<arg name="initial_pose_a" default="0.0"/>
+<include file="$(find turtlebot_navigation)/launch/includes/amcl/kinect_amcl.launch.xml">
+  <arg name="initial_pose_x" value="15.5"/>
+  <arg name="initial_pose_y" value="69"/>
+  <arg name="initial_pose_a" value="$(arg initial_pose_a)"/>
+</include>
 </launch>
