@@ -19,7 +19,7 @@ RUN wget -q "https://github.com/turtlebot/turtlebot_apps/archive/${TURTLEBOT_APP
     rm "${TURTLEBOT_APPS_VERSION}.tar.gz" && \
     mv "turtlebot_apps-${TURTLEBOT_APPS_VERSION}" src/turtlebot_apps
 
-ADD . src/cp-gazebo
+ADD cp-gazebo src/cp-gazebo
 
 RUN . /opt/ros/kinetic/setup.sh && \
     sudo chown -R $(whoami):$(whoami) . && \
