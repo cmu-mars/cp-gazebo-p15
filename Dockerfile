@@ -1,10 +1,12 @@
 FROM cmu-mars/base
 
-RUN sudo apt-get update
-RUN sudo apt-get install -y ros-kinetic-gazebo-ros-pkgs \
+# xvfb is used to provide a headless X-server
+RUN sudo apt-get update && \
+    sudo apt-get install -y ros-kinetic-gazebo-ros-pkgs \
                             ros-kinetic-gazebo-ros-control \
                             ros-kinetic-kobuki-gazebo \
-                            apt-utils
+                            apt-utils \
+                            xvfb
 
 # this code should only be needed by a small number of packages
 ENV TURTLEBOT_VERSION 2.4.2
@@ -26,3 +28,6 @@ RUN . /opt/ros/kinetic/setup.sh && \
     rosdep update && \
     rosdep install -y --from-paths . --ignore-src --rosdistro=kinetic && \
     catkin_make install
+
+# use a modified entrypoint script
+ADD entrypoint.sh entrypoint.sh
