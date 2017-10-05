@@ -3,7 +3,8 @@ FROM cmu-mars/base
 RUN sudo apt-get update
 RUN sudo apt-get install -y ros-kinetic-gazebo-ros-pkgs \
                             ros-kinetic-gazebo-ros-control \
-                            ros-kinetic-kobuki-gazebo
+                            ros-kinetic-kobuki-gazebo \
+                            apt-utils
 
 # this code should only be needed by a small number of packages
 ENV TURTLEBOT_VERSION 2.4.2
