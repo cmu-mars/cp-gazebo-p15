@@ -33,7 +33,7 @@ RUN wget -q "http://acme.able.cs.cmu.edu/public/BRASS/deployment/gazebo7_vm_mods
     unzip gazebo7_vm_mods.zip  && \
     sudo cp -r --no-preserve=mode,ownership gazebo_mods/usr/* /usr && \
     rm -r gazebo_mods gazebo7_vm_mods.zip && \
-    chmod +x /usr/bin/gazebo-7.0.0 /usr/bin/gzclient-7.0.0 /usr/bin/gzserver-7.0.0 /usr/bin/gz-7.0.0
+    sudo chmod +x /usr/bin/gazebo-7.0.0 /usr/bin/gzclient-7.0.0 /usr/bin/gzserver-7.0.0 /usr/bin/gz-7.0.0
 
 # use a modified entrypoint script
 ADD entrypoint.sh entrypoint.sh
