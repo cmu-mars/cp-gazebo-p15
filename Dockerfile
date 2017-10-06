@@ -29,8 +29,8 @@ RUN . /opt/ros/kinetic/setup.sh && \
     rosdep install -y --from-paths . --ignore-src --rosdistro=kinetic && \
     catkin_make install
 # get a modified version of Gazebo that works on VMs
-RUN wget -q "http://acme.able.cs.cmu.edu/public/BRASS/deployment/gazebo7_vm_mods.zip" 
-    unzip gazebo7_vm_mods.zip && \
+RUN wget -q "http://acme.able.cs.cmu.edu/public/BRASS/deployment/gazebo7_vm_mods.zip" && \
+    unzip gazebo7_vm_mods.zip 
 #    sudo cp -r --no-preserve=mode,ownership gazebo_mods/usr/* /usr && \
 #    rm -r gazebo_mods gazebo7_vm_mods.zip
 
