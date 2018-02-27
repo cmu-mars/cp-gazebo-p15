@@ -30,11 +30,11 @@ RUN . /opt/ros/kinetic/setup.sh && \
     catkin_make install
 
 # get a modified version of Gazebo that works on VMs
-RUN sudo apt-get install -y libignition-math2-dev && \
+RUN sudo apt-get install -y libignition-math3-dev && \
     sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list' && \
     wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add - && \
     sudo apt-get update && \
-    sudo apt-get install -y gazebo7 
+    sudo apt-get install -y gazebo7
 
 # use a modified entrypoint script
 ADD entrypoint.sh entrypoint.sh
